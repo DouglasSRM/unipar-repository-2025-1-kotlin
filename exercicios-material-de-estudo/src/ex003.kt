@@ -98,12 +98,6 @@ private fun somarNumerosReais() {
     readln().toString()
 }
 
-// # Anotações sobre a expressão regular #
-// ^ -> marca o início da string
-// [1-9] -> indica que o primeiro dígito deve estar entre 1 e 9
-// \\d* -> indica que a string pode ter 0 ou mais dígitos adicionais
-// $ -> indica o fim da string
-//"^[1-9]\\d*\$"
 private fun getInt(mensagem: String = "Informe um número: ",
                       regex: Regex = Regex("^-?\\d+\$"),
                    msgInvalida: String = "Número inválido!"): Int {
@@ -140,6 +134,7 @@ private fun getFloat(mensagem: String = "Informe um número: "): Float {
     } while (!valida)
     return numero.toFloat()
 }
+
 private fun validaNumero(input: String): Boolean {
     return input.toFloatOrNull() != null
 }
@@ -147,3 +142,10 @@ private fun validaNumero(input: String): Boolean {
 private fun getOpcao(): Int {
     return getInt("Insira uma opção: ", Regex("^[1-4]\$"), "Opção inválida!")
 }
+
+// # Anotações sobre a expressão regular #
+// ^ -> marca o início da string
+// [1-9] -> indica que o primeiro dígito deve estar entre 1 e 9
+// \\d* -> indica que a string pode ter 0 ou mais dígitos adicionais
+// $ -> indica o fim da string
+//"^[1-9]\\d*\$"
