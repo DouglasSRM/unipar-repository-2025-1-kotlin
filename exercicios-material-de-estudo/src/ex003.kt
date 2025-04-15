@@ -18,11 +18,39 @@ private fun exibirMenu() {
         when (opcao.toInt()) {
             1 -> somarNumerosReais()
             2 -> gerarNumeroAleatorio()
-            3 -> {}
+            3 -> listarPositivosNegativos()
             4 -> println("Saindo...")
         }
-
     } while (opcao != 4)
+}
+
+private fun listarPositivosNegativos() {
+    println("# Leitor de números negativos e positivos #")
+
+    var listaPositiva = mutableListOf<Int>()
+    var listaNegativa = mutableListOf<Int>()
+
+    var numero: Int = 0
+
+    do {
+        numero = getInt()
+
+        if (numero > 0) {
+            listaPositiva.add(numero)
+        } else if (numero < 0) {
+            listaNegativa.add(numero)
+        }
+    } while (numero != 0)
+
+    println("# Números positivos: ")
+    for (num in listaPositiva){
+        println("$num ")
+    }
+
+    println("# Números negativos: ")
+    for (num in listaNegativa){
+        println("$num ")
+    }
 }
 
 private fun gerarNumeroAleatorio() {
@@ -107,7 +135,7 @@ private fun getFloat(mensagem: String = "Informe um número: "): Float {
         var valida: Boolean = validaNumero(numero)
 
         if (!valida) {
-            println("Opção inválida!")
+            println("Número inválido!")
         }
     } while (!valida)
     return numero.toFloat()
