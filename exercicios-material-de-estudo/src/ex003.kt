@@ -99,7 +99,7 @@ private fun somarNumerosReais() {
 }
 
 private fun getInt(mensagem: String = "Informe um número: ",
-                      regex: Regex = Regex("^-?\\d+\$"),
+                   regex: Regex = Regex("^-?\\d+\$"),
                    msgInvalida: String = "Número inválido!"): Int {
     var numero = ""
     do {
