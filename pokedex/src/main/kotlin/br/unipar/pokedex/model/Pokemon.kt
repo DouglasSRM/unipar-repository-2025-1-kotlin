@@ -3,13 +3,12 @@ package br.unipar.pokedex.model
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.PositiveOrZero
 
 @Entity
-class Pokemon (
+data class Pokemon (
     @Id
-    var numeroPokedex: Int,
+    var numeroPokedex: String? = null,//ID do documento
 
     @NotBlank
     var nome: String,
@@ -20,5 +19,7 @@ class Pokemon (
     var tipo_2: Tipo?,
 
     @PositiveOrZero
-    var poder: Int
+    var poder: Int,
+
+    var descricao: String? = null
 )
