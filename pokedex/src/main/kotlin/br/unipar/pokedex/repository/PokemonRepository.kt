@@ -19,4 +19,19 @@ class PokemonRepository(
         return pokemonRegistrado
     }
 
+    fun buscarId(): List<Pokemon> {
+        val query = firestore.collection(collectionName)
+            .get().get() //Retorna todos os documentos da coleção
+        //a query vem em vários JSON, basta converter para uma lista um de cada vez
+        return query.documents.mapNotNull {pokemons ->
+            pokemons.toObject(Pokemon::class.java)
+        }
+    }
+
+    fun excluirId(numeroPokedex: String): Boolean{
+        //Busca um documento igual na buscaID, mas aqui deleta ele
+        firestore.collection(collectionName).document(numeroPokedex).delete()
+        return true
+    }
+    
 }
