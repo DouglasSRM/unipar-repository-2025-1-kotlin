@@ -6,9 +6,9 @@ import com.google.firebase.cloud.FirestoreClient
 import org.springframework.stereotype.Repository
 
 @Repository
-class PokemonRepository {
-
+class PokemonRepository(
     private val firestore : Firestore = FirestoreClient.getFirestore()//Buscar em um JSON
+) {
     private val collectionName = "pokedex" //O nome da coleção é o que está no firebase
 
     fun salvar (pokemon: Pokemon): Pokemon{
